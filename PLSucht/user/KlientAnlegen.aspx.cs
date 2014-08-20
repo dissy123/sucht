@@ -75,11 +75,13 @@ namespace PLSucht
                     {
                         lblFehlermeldung.Text = "Kunde nicht gefunden - Sie können einen neuen Kunden anlegen!";
                         Session["Klient"] = Start.newKlient(); //neues leeres Kundenobjekt
+                        input_erstkontakt.Text = DateTime.Today.ToShortDateString();
                     }
                 }
                 else
                 {
                     initializeKlient();
+                    input_erstkontakt.Text = DateTime.Today.ToShortDateString();
                 }
             }
             else
@@ -115,10 +117,23 @@ namespace PLSucht
 
 
                 // Datum in String Konvertieren
-                currentKlient.Gebdat = DateTime.Parse(input_gebdat.Text);
-                currentKlient.Erstkontakt = DateTime.Parse(input_erstkontakt.Text);
+                if (input_gebdat.Text == "")
+                {
+                    currentKlient.Gebdat = DateTime.Today;
+                }
+                else {
+                    currentKlient.Gebdat = DateTime.Parse(input_gebdat.Text);
+                }
 
-
+                if (input_erstkontakt.Text == "")
+                {
+                    currentKlient.Erstkontakt = DateTime.Today;
+                }
+                else
+                {
+                    currentKlient.Erstkontakt = DateTime.Parse(input_erstkontakt.Text);
+                }
+                
                 // Geschlecht Radio Buttons
                 if (M.Checked == true)
                 {

@@ -42,7 +42,7 @@ namespace PLSucht
                         //kopiere die Properties des Objekts in die Felder der Maske
                         input_ueberweisungskontext.Text = CurrentBeratung.Ueberweisungskontext;
                         input_gespraechsart.Text = CurrentBeratung.Gespraechsart;
-                        input_anmerkungen.Text = CurrentBeratung.Anmerkungen;
+                        input_anmerkungen.Text = CurrentBeratung.Anmerkungen_formatted;
                         input_kontaktort.Text = CurrentBeratung.Kontaktort;
                         // Datum in String Konvertieren
                         input_datum.Text = CurrentBeratung.Datum_formatted;

@@ -13,6 +13,7 @@ namespace BOSucht
         private String beratungID = "";
         private String themenID = "";
         private Thema thema;
+        private bool inDB;
 
         // PROPERTIES *********************************************************************************************
         public String BeratungID
@@ -39,26 +40,20 @@ namespace BOSucht
 
         public bool saveBeratungsThema()
         {
-            
-            //neuer Record -> INSERT
-            string SQL = "insert into beratungsthemen (beratungsID, themenID)" +
-                                        "values (@beratungsID, @themenID);";
+                //neuer Record -> INSERT
+                string SQL = "insert into beratungsthemen (beratungsID, themenID)" +
+                                            "values (@beratungsID, @themenID);";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = SQL;
-            cmd.Connection = Start.GetConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = SQL;
+                cmd.Connection = Start.GetConnection();
 
-            //GUID für ID erzeugen und als String zurückgeben (weil mID=="")!
+                //Die Parameter in SQL-String mit Werten versehen...
+                cmd.Parameters.Add(new SqlParameter("beratungsID", beratungID));
+                cmd.Parameters.Add(new SqlParameter("themenID", themenID));
 
-            
-
-            //Die Parameter in SQL-String mit Werten versehen...
-
-            cmd.Parameters.Add(new SqlParameter("beratungsID", beratungID));
-            cmd.Parameters.Add(new SqlParameter("themenID", themenID));
-
-            // ExecuteNonQuery() gibt die Anzahl der veränderten/angelegten Records zurück.
-            return (cmd.ExecuteNonQuery() > 0); //hat der INSERT geklappt, sollte genau ein Record verändert worden sein
+               
+                return(cmd.ExecuteNonQuery() > 0);
            
         }
 
@@ -74,8 +69,8 @@ namespace BOSucht
                 cmd.Parameters.Add(new SqlParameter("themenID", themenID));
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    beratungID = ""; //das Objekt existiert weiter - es verhält sich aber wieder wie ein neuer Kunde
-                    themenID = "";
+                    //beratungID = ""; //das Objekt existiert weiter - es verhält sich aber wieder wie ein neuer Kunde
+                    //themenID = "";
                     return true;
                 }
                 else return false; //Löschen aus DB klappt nicht...

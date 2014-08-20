@@ -129,7 +129,7 @@
                     <asp:BoundField DataField="datum_formatted" HeaderText="Datum" />
                     <asp:BoundField DataField="beratungsart_formatted" HeaderText="Beratungsart" />
                     <asp:BoundField DataField="ueberweisungskontext" HeaderText="Überweisungskontext" />
-                    <asp:BoundField DataField="anmerkungen" HeaderText="Anmerkungen" />
+                    <asp:BoundField DataField="Anmerkungen_formatted" HeaderText="Anmerkungen" HtmlEncode="False"/>
                 </Columns>
             </asp:GridView>
         </div>

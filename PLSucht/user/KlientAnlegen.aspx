@@ -15,6 +15,7 @@
 
         <div class="row">
             <div class="col-md-8">
+                
                 <div class="form-inline">
                     <div class="input-group">
                         <h2>Klient - Bearbeiten/Hinzufügen </h2>

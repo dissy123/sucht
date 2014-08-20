@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Text;
+using System.Net;
 
 namespace BOSucht
 {
@@ -64,12 +65,12 @@ namespace BOSucht
             set { ueberweisungskontext = value; }
         }
 
-        public String Anmerkungen
+        public String Anmerkungen_formatted
         {
-            get { return anmerkungen; }
+            get { return WebUtility.HtmlDecode(anmerkungen); }
             set { anmerkungen = value; }
         }
-
+        
         public TimeSpan Dauer
         {
             get { return dauer; }

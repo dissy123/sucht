@@ -155,6 +155,10 @@ namespace BOSucht
         {
             if (klientinID == "")
             {
+                if (geschlecht == null) {
+                    geschlecht = "X";
+                }
+
                 //neuer Record -> INSERT
                 string SQL = "insert into klient (klientinID, vorname, nachname, adresse, " +
                                                  "plz, ort, telnr, mobilnr, geschlecht, nationalitaet, " +
@@ -186,7 +190,7 @@ namespace BOSucht
                 klientinID = Guid.NewGuid().ToString();
 
                 //Die Parameter in SQL-String mit Werten versehen...
-
+                
                 cmd.Parameters.Add(new SqlParameter("klientinID", klientinID));
                 cmd.Parameters.Add(new SqlParameter("vorname", vorname));
                 cmd.Parameters.Add(new SqlParameter("nachname", nachname));

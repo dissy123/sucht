@@ -54,7 +54,7 @@ namespace PLSucht
                         //kopiere die Properties des Objekts in die Felder der Maske
                         input_ueberweisungskontext.Value = CurrentBeratung.Ueberweisungskontext;
                         input_gespraechsart.Value = CurrentBeratung.Gespraechsart;
-                        input_anmerkungen.Text = CurrentBeratung.Anmerkungen;
+                        input_anmerkungen.InnerText = CurrentBeratung.Anmerkungen_formatted;
                         input_kontaktort.Value = CurrentBeratung.Kontaktort;
                         // Datum in String Konvertieren
                         input_datum.Text = CurrentBeratung.Datum.ToShortDateString();
@@ -62,7 +62,7 @@ namespace PLSucht
                         // Time To Date
                         input_dauer.Text = CurrentBeratung.Dauer.ToString();
 
-                        input_beratungsart.SelectedIndex = Array.FindIndex(beratungsarten, row => row == CurrentBeratung.Beratungsart);
+                        input_beratungsart.SelectedIndex = Int32.Parse(CurrentBeratung.Beratungsart);
 
                         set_selected_beratungsthemen();
 
@@ -70,6 +70,8 @@ namespace PLSucht
                     }
                     else
                     {
+                        input_datum.Text = DateTime.Today.ToShortDateString();
+
                         lblFehlermeldung.Text = Start.KeineBeratung;
                         Session["Beratung"] = Start.newBeratung(); //neues leeres Kundenobjekt
 
@@ -179,7 +181,7 @@ namespace PLSucht
                 
                 CurrentBeratung.Ueberweisungskontext = input_ueberweisungskontext.Value;
                 CurrentBeratung.Gespraechsart = input_gespraechsart.Value;
-                CurrentBeratung.Anmerkungen = input_anmerkungen.Text;
+                CurrentBeratung.Anmerkungen_formatted = input_anmerkungen.InnerText;
                 CurrentBeratung.Anhang = input_anhang.FileName;
                 CurrentBeratung.Kontaktort = input_kontaktort.Value;
 
@@ -197,6 +199,8 @@ namespace PLSucht
                 {
                     foreach (Beratungsthema beratungsthema in CurrentBeratung.Beratungsthemen)
                     {
+                        beratungsthema.deleteBeratungsThema(); // Löschen damit dannach wieder gesaved werden kann! Sonst gibts ned Primary Key Exception
+
                         beratungsthema.BeratungID = CurrentBeratung.BeratungID;
                         if (!beratungsthema.saveBeratungsThema())
                         {
