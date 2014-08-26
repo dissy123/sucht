@@ -7,7 +7,7 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace PLSucht {
+namespace PLSucht.admin {
     
     
     public partial class Register {
@@ -31,13 +31,31 @@ namespace PLSucht {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// LoginName1-Steuerelement
+        /// label_klient-Steuerelement
         /// </summary>
         /// <remarks>
         /// Automatisch generiertes Feld
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginName LoginName1;
+        protected global::System.Web.UI.WebControls.Label label_klient;
+        
+        /// <summary>
+        /// LoginName2-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginName LoginName2;
+        
+        /// <summary>
+        /// LoginStatus2-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus2;
         
         /// <summary>
         /// label_vorname-Steuerelement

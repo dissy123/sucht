@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BOSucht; //meinen BO-Namespace im Presentation Layer importieren!
+using System.Web.Security;
 
 namespace PLSucht
 {
@@ -15,6 +16,12 @@ namespace PLSucht
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            MembershipUser user = Membership.GetUser();
+            if (Roles.IsUserInRole(user.UserName, "Manager"))
+            {
+                berater_anlegen.Visible = true;
+            }
+    
             //GVKunden.DataSource wird auf eine Liste von BO-Objekte gesetzt
             if (!IsPostBack)
             {
@@ -35,10 +42,22 @@ namespace PLSucht
             Response.Redirect("KlientAnlegen.aspx"); //Kundeseite aufrufen
         }
 
+        protected void btnNeuBerater_Click(object sender, EventArgs e)
+        {
+            
+            Response.Redirect("/admin/Register.aspx"); //Kundeseite aufrufen
+        }
 
     
         protected void GVKlient_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Session["alleKlienten"] != null) {
+                alleKlienten = (Klienten)Session["alleKlienten"];
+            }
+            if (alleKlienten == null && Session["alleKlienten"] == null)
+            {
+                alleKlienten = Start.getAllKlients();
+            }
            GridViewRow row = GVKlienten.SelectedRow;
            Session["Klient"] = alleKlienten[row.RowIndex];
            Response.Redirect("KlientDetail.aspx");  

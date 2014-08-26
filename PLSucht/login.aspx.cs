@@ -24,6 +24,7 @@ namespace PLSucht
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
         {
+            
             Response.Redirect("user/KlientenAuswahl.aspx");
         }
     }

@@ -273,7 +273,7 @@ namespace BOSucht
             string sql = "SELECT beratungsID, beraterID, klientinID, kontaktort, " +
                                 "beratungsart, ueberweisungskontext, anmerkungen, dauer, datum, gespraechsart, anhang " +
                                 "FROM beratung " +
-                                "ORDER BY beratungsID;";
+                                "ORDER BY datum;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
@@ -300,7 +300,7 @@ namespace BOSucht
                                 "beratungsart, ueberweisungskontext, anmerkungen, dauer, datum, gespraechsart, anhang " +
                                 "FROM beratung " +
                                 "WHERE klientinID=@id " +
-                                "ORDER BY datum;";
+                                "ORDER BY datum DESC;";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;

@@ -31,6 +31,15 @@ namespace PLSucht {
         protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManager1;
         
         /// <summary>
+        /// headertxt-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label headertxt;
+        
+        /// <summary>
         /// label_klient-Steuerelement
         /// </summary>
         /// <remarks>

@@ -40,6 +40,24 @@ namespace PLSucht {
         protected global::System.Web.UI.WebControls.Button Button1_;
         
         /// <summary>
+        /// input_vorname-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label input_vorname;
+        
+        /// <summary>
+        /// input_nachname-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label input_nachname;
+        
+        /// <summary>
         /// Button2_-Steuerelement
         /// </summary>
         /// <remarks>
@@ -92,24 +110,6 @@ namespace PLSucht {
         /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage imgDisplay;
-        
-        /// <summary>
-        /// input_vorname-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label input_vorname;
-        
-        /// <summary>
-        /// input_nachname-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Um dies zu ändern, verschieben Sie die Felddeklaration aus der Designerdatei in eine Code-Behind-Datei.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label input_nachname;
         
         /// <summary>
         /// label_adresse-Steuerelement

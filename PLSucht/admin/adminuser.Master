@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="PLSucht.user.user" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="adminuser.Master.cs" Inherits="PLSucht.admin.adminuser" %>
 
 <!DOCTYPE html>
 
@@ -13,8 +13,6 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-
 
     <div class="content">
 
@@ -39,10 +37,10 @@
                 "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                 "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
             ],
-            toolbar1: "styleselect formatselect fontselect fontsizeselect",
-            toolbar2: "cut copy paste | bullist numlist | undo redo | link unlink  bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | table | subscript superscript | charmap emoticons | visualchars visualblocks nonbreaking template pagebreak restoredraft",
-            
-            height : 150,
+
+            toolbar1: " bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+            toolbar2: "cut copy paste | bullist numlist | outdent indent blockquote | undo redo | link unlink ",
+            toolbar3: "table | subscript superscript | charmap emoticons | visualchars visualblocks nonbreaking template pagebreak restoredraft",
 
             menubar: false,
             toolbar_items_size: 'small',
@@ -60,8 +58,7 @@
             templates: [
                     { title: 'Test template 1', content: 'Test 1' },
                     { title: 'Test template 2', content: 'Test 2' }
-            ],
-            theme_advanced_toolbar_align : "left"
+            ]
 
         });
     </script>

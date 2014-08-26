@@ -2,9 +2,9 @@
     debugger;
     if ($('#ContentPlaceHolder1_AsyncFileUpload1_ctl01') != null) {
         if ($('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html() == undefined) {
-            $('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html('Datei auswählen!');
+            $('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html('Bild auswählen!');
         } else {
-            $('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html($('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html() + 'Datei auswählen!');
+            $('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html($('#ContentPlaceHolder1_AsyncFileUpload1_ctl01').html() + 'Bild auswählen!');
         }
     }
     

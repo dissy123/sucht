@@ -8,7 +8,7 @@ using System.Web.Security;
 using BOSucht;
 
 
-namespace PLSucht
+namespace PLSucht.admin
 {
     public partial class Register : System.Web.UI.Page
     {

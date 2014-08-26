@@ -39,6 +39,9 @@ namespace PLSucht
                     currentKlient = Start.getKlientByID(currentID);
                     if (currentKlient != null)
                     {
+
+                        headertxt.Text = "Bearbeiten";
+
                         //kopiere die Properties des Objekts in die Felder der Maske
                         input_vorname.Value = currentKlient.Vorname;
                         input_nachname.Value = currentKlient.Nachname;
@@ -67,19 +70,22 @@ namespace PLSucht
                             W.Checked = true;
                         }
 
-                        imgDisplay.Src = currentKlient.Avatar;
-
+                        if (currentKlient.Avatar != null)
+                        {
+                            imgDisplay.Src = currentKlient.Avatar;
+                        }
                         Session["Klient"] = currentKlient; //Kundenobjekt in Session speichern
                     }
                     else
                     {
-                        lblFehlermeldung.Text = "Kunde nicht gefunden - Sie können einen neuen Kunden anlegen!";
+                        headertxt.Text = "Anlegen";
                         Session["Klient"] = Start.newKlient(); //neues leeres Kundenobjekt
                         input_erstkontakt.Text = DateTime.Today.ToShortDateString();
                     }
                 }
                 else
                 {
+                    headertxt.Text = "Anlegen";
                     initializeKlient();
                     input_erstkontakt.Text = DateTime.Today.ToShortDateString();
                 }

@@ -52,7 +52,14 @@ namespace PLSucht
 
                         input_beratungsart.Text = beratungsarten[Int32.Parse(CurrentBeratung.Beratungsart)];
 
-
+                        if (CurrentBeratung.Anhang != "")
+                        {
+                            link_anhang.NavigateUrl = CurrentBeratung.Anhang;
+                        }
+                        else {
+                            link_anhang.Visible = false;
+                            label_anhang.Visible = false;
+                        }
                         Beratungsthemen beratungsthemen = Start.getBeratungsThemenByBeratungsID(beratungsID);
                         Themen themen = Start.getAllThemen();
 

@@ -50,8 +50,10 @@ namespace PLSucht
                         input_sex.Text = "Weiblich";
                     }
 
-                    imgDisplay.Src = Klient.Avatar;
-
+                    if (Klient.Avatar != null)
+                    {
+                        imgDisplay.Src = Klient.Avatar;
+                    }
                     Session["alleBeratungen"] = alleBeratungen; // die heb ich mir in der Session auf
                     GVBesprechungsuebersicht.DataSource = alleBeratungen;
                     GVBesprechungsuebersicht.DataBind(); //dadurch wirds angezeigt

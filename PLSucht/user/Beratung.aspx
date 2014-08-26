@@ -31,8 +31,8 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-top: -15px;">
-                    <h2 style="padding-top: 0px; margin-top: 0px">
+                <div class="form-group" >
+                    <h2 >
                         <small>
                             <asp:Label ID="label_klient" runat="server" Text=""></asp:Label>
                             vom 
@@ -62,37 +62,39 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div>
-                        <asp:Label ID="label_ueberweisungskontext" runat="server" Text="Überweisungskontext"></asp:Label>
-                        <asp:Label ID="input_ueberweisungskontext" runat="server" type="text" />
+                    <div class="form-inline">
+                        <asp:Label  ID="label_ueberweisungskontext" runat="server" Text="Überweisungskontext" AssociatedControlID="input_ueberweisungskontext"></asp:Label><br />
+                        <asp:Label  ID="input_ueberweisungskontext" runat="server" type="text" />
                     </div>
-                    <div>
-                        <asp:Label ID="label_beratungsart" runat="server" Text="Beratungsart"></asp:Label>
-                        <asp:Label ID="input_beratungsart" runat="server"></asp:Label>
+                    <div class="form-inline"> 
+                        <asp:Label  ID="label_beratungsart" runat="server" Text="Beratungsart" AssociatedControlID="input_beratungsart"></asp:Label><br />
+                        <asp:Label  ID="input_beratungsart" runat="server"></asp:Label>
                     </div>
-                    <div>
-                        <asp:Label ID="label_gespraechsart" runat="server" Text="Gesprächsart"></asp:Label>
-                        <asp:Label ID="input_gespraechsart" runat="server" type="text" />
+                    <div class="form-inline">
+                        <asp:Label  ID="label_gespraechsart" runat="server" Text="Gesprächsart" AssociatedControlID="input_gespraechsart" ></asp:Label><br />
+                        <asp:Label  ID="input_gespraechsart" runat="server" type="text" />
                     </div>
-                    <div>
-                        <asp:Label ID="label_kontaktort" runat="server" Text="Kontaktort"></asp:Label>
-                        <asp:Label ID="input_kontaktort" runat="server" type="text" />
+                </div>
+                <div class="col-md-3">
+                    <div class="form-inline">
+                        <asp:Label  ID="label_kontaktort" runat="server" Text="Kontaktort"  AssociatedControlID="input_kontaktort"></asp:Label><br />
+                        <asp:Label  ID="input_kontaktort" runat="server" type="text" />
                     </div>
-                    <div>
-                        <asp:Label ID="label_dauer" runat="server" Text="Dauer"></asp:Label>
-                        <asp:Label ID="input_dauer" runat="server" TextMode="Time"></asp:Label>
+                    <div class="form-inline">
+                        <asp:Label  ID="label_dauer" runat="server" Text="Dauer"  AssociatedControlID="input_dauer"></asp:Label><br />
+                        <asp:Label  ID="input_dauer" runat="server" TextMode="Time"></asp:Label>
                     </div>
-                    <div>
-                        <asp:Label ID="label_anhang" runat="server" Text="Anhang"></asp:Label>
-                        <asp:HyperLink ID="link_anhang" runat="server" Target="_blank">Download</asp:HyperLink>
+                    <div class="form-inline">
+                        <asp:Label ID="label_anhang" runat="server" Text="Anhang"  AssociatedControlID="link_anhang"></asp:Label><br />
+                        <asp:HyperLink class="btn btn-primary" ID="link_anhang" runat="server" Target="_blank">Download</asp:HyperLink>
                     </div>
                 </div>
 
                 <div class="col-md-3">
-                    <asp:Label ID="label_themen" runat="server" Text="Themen"></asp:Label>
-                    <asp:Repeater ID="Repeater1" runat="server">
+                    <asp:Label  ID="label_themen" runat="server" Text="Themen" AssociatedControlID="Repeater1"></asp:Label>
+                    <asp:Repeater  ID="Repeater1" runat="server">
                         <HeaderTemplate>
-                            <ul>
+                            <ul >
                         </HeaderTemplate>
                         <ItemTemplate>
                             <li><%#Eval("Thema.Titel")%></li>
@@ -102,14 +104,14 @@
                         </FooterTemplate>
                     </asp:Repeater>
                 </div>
-                <div class="col-md-3">
-                    <asp:Label ID="label_anmerkungen" runat="server" Text="Anmerkungen"></asp:Label>
-                    <br />
-                    <asp:Label ID="input_anmerkungen" runat="server"></asp:Label>
-
-                </div>
+               
             </div>
-
+             <div class="row">
+                 <div class="col-md-12">
+                    <asp:Label ID="label_anmerkungen" runat="server" Text="Anmerkungen" AssociatedControlID="input_anmerkungen"></asp:Label>
+                    <br />
+                    <asp:Label  ID="input_anmerkungen" runat="server"></asp:Label>
+                </div></div>
         </div>
     </form>
 </asp:Content>

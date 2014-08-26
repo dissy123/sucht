@@ -154,7 +154,7 @@ namespace BOSucht
             //Variante 2: wie oben, aber der Pfad wird aus dem absoluten App-Pfad und der relativen Position des DB-Files berechnet.
             List<string> dirs = new List<string>(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory).Split('\\'));
             dirs.RemoveAt(dirs.Count - 1); //letztes Verzeichnis entfernen
-            string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + String.Join(@"\", dirs) + "\\BOSucht" + @"\suchtberatung.mdf;Integrated Security=True;Connect Timeout=5";
+            string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=" + String.Join(@"\", dirs) + "\\BOSucht" + @"\suchtdb.mdf;Integrated Security=True;Connect Timeout=5";
 
             //Variante 3: DBFile mit SQL Server Manager Express im SQL-Server registrieren und den "Kurznamen aus dem SQL Manager angeben
             //Vorteil: nur ein logischer Name - Name und Pfad der DB kann verändert werden (SQL Manager)

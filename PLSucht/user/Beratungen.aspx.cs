@@ -44,13 +44,17 @@ namespace PLSucht
                 if (beratungsID != "" && Klient != null)
                 {
                     label_klient.Text = Klient.Vorname + " " + Klient.Nachname;
-                    imgDisplay.Src = Klient.Avatar;
-
+                    if (Klient.Avatar != null)
+                    {
+                        imgDisplay.Src = Klient.Avatar;
+                    }
                     //Objekt laden und Werte setzen
                     CurrentBeratung = Start.getBeratungByID(beratungsID);
                     
                     if (CurrentBeratung != null)
                     {
+                        headertxt.Text = "Bearbeiten";
+
                         //kopiere die Properties des Objekts in die Felder der Maske
                         input_ueberweisungskontext.Value = CurrentBeratung.Ueberweisungskontext;
                         input_gespraechsart.Value = CurrentBeratung.Gespraechsart;
@@ -71,8 +75,9 @@ namespace PLSucht
                     else
                     {
                         input_datum.Text = DateTime.Today.ToShortDateString();
-
-                        lblFehlermeldung.Text = Start.KeineBeratung;
+                        
+                        headertxt.Text = "Anlegen";
+                        
                         Session["Beratung"] = Start.newBeratung(); //neues leeres Kundenobjekt
 
                         alleBeratungen = Start.getBeratungenbyKlient(Klient.KlientinID); //hier stecken alle Klienten als einzelne Objekte drin!
@@ -132,7 +137,7 @@ namespace PLSucht
                 initializeBeratung();
             }
 
-            CurrentBeratung.Anhang = input_anhang.FileName;
+            CurrentBeratung.Anhang = pathjs;
             link_anhang.NavigateUrl = input_anhang.ResolveUrl(filePath);
 
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "size", "top.$get(\"" + link_anhang.ClientID + "\").href = '" + pathjs + "';", true);
@@ -182,7 +187,7 @@ namespace PLSucht
                 CurrentBeratung.Ueberweisungskontext = input_ueberweisungskontext.Value;
                 CurrentBeratung.Gespraechsart = input_gespraechsart.Value;
                 CurrentBeratung.Anmerkungen_formatted = input_anmerkungen.InnerText;
-                CurrentBeratung.Anhang = input_anhang.FileName;
+                CurrentBeratung.Anhang = CurrentBeratung.Anhang;
                 CurrentBeratung.Kontaktort = input_kontaktort.Value;
 
                 // Datum in String Konvertieren
@@ -214,12 +219,13 @@ namespace PLSucht
                     lblFehlermeldung.Text = "Speichern der Beratung fehlgeschlagen";
                 }
             }
-            else lblFehlermeldung.Text = "Beratung existiert nicht mehr in DB!";
+            
         }
 
         protected void btnCancelClick(object sender, EventArgs e)
         {
-            Response.Redirect("KlientenAuswahl.aspx"); //ohne Speichern zur Hauptseite
+            Session["Klient"] = Klient;
+            Response.Redirect("KlientDetail.aspx"); //ohne Speichern zur Hauptseite
         }
 
         protected void Anhang_Download_Click(object sender, ImageClickEventArgs e)
